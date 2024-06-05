@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -16,6 +17,12 @@ class ProjectSeeder extends Seeder
     public function run(Faker $faker): void
     {
         //
+
+        $types = Type::all(); //collection di oggetti Type -> deve diventare un array di id
+
+        $ids = $types->pluck('id')->all();
+
+
         for ($i = 0; $i < 10; $i++) {
 
             $new_project = new Project();
@@ -24,6 +31,7 @@ class ProjectSeeder extends Seeder
             $new_project->name = $faker->name();
             $new_project->description = $faker->text();
             $new_project->giturl = $faker->url();
+            $new_project->type_id = $faker->randomElement([1, 2, 3, 4]);
 
             $new_project->slug = Str::slug($title);
 

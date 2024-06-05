@@ -4,7 +4,7 @@
         Ciao
     </h1>
     <div class="container">
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>
@@ -14,6 +14,7 @@
                         Github
                     </th>
                     <th>Descrizione</th>
+                    <th>Type</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,22 @@
                         </td>
                         <td>
                             {{ $project->description }}
+                        </td>
+                        {{-- type --}}
+                        <td>
+                            {{ $project->type->type }}
+                        </td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a href="{{ route('admin.projects.edit', $project) }}">Edit</a>
+                                <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+
+                                    <button class="btn btn-link link-danger">Trash</button>
+
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

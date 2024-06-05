@@ -14,12 +14,9 @@ return new class extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
 
-            $types_array = [
-                'Dev Ops', 'BackEnd', 'FrontEnd', 'Designer',
-            ];
 
             $table->id();
-            $table->string('type');
+            $table->string('type')->nullable();
             $table->string('slug')->unique();
             $table->timestamps();
         });
