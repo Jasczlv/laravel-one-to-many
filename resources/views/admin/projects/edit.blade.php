@@ -22,10 +22,19 @@
                         placeholder="https://github.com..." value="{{ $project->giturl }}">
                 </div>
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nome</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Nome"
-                        value="{{ $project->type->type }}">
+                    <select name="type_id" id="type_id">
+                        <option value="1">Dev Ops</option>
+                        <option value="2">BackEnd</option>
+                        <option value="3">FrontEnd</option>
+                        <option value="4">Designer</option>
+                        <option value="5">Undefined</option>
+                    </select>
                 </div>
+                {{-- <div class="mb-3">
+                    <label for="type_id" class="form-label">Type project</label>
+                    <input type="text" name="type_id" class="form-control" id="type_id" placeholder="Nome"
+                        value="{{ $project->type->type }}">
+                </div> --}}
 
                 <div class="d-flex justify-content-center py-4">
                     <button class="btn my-btn-edit">Update</button>

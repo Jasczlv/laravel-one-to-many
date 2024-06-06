@@ -14,6 +14,9 @@
             <a href="{{ $project->giturl }}" target="_blank">
                 link github
             </a>
+            <p>
+                {{ $project->type->type }}
+            </p>
 
         </div>
     </div>
